@@ -1,6 +1,7 @@
 package parser
 
 import (
+  "fmt"
   "qfa/ast"
   "qfa/lexer"
   "qfa/token"
@@ -16,7 +17,10 @@ type Parser struct{
 }
 
 func New(l *lexer.Lexer) *Parser{
-  p := &Parser{l: l, errors: []string}
+  p := &Parser{
+    l: l,
+    errors: []string{},
+  }
 
   // read 2 tokens so curToken and peekToken are both set
   p.nextToken()
@@ -97,6 +101,7 @@ func (p *Parser) parseLetStatement() *ast.LetStatement{
       p.nextToken()
       return true
     } else{
+      p.peekError(t)
       return false
     }
   }
