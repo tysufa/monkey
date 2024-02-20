@@ -6,6 +6,14 @@ import(
   "qfa/lexer"
 )
 
+func TestReturnStatement(t *testing.T){
+  input = `
+  return 15;
+  return 12;
+  return 190324;
+  `
+}
+
 func TestLetStatement(t *testing.T){
   input := `
   let x = 5;
