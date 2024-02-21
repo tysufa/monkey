@@ -49,8 +49,8 @@ type ExpressionStatement struct{
   Expression Expression
 }
 
-func (ls *ExpressionStatement) StatementNode() {}
-func (ls *ExpressionStatement) TokenLiteral() string {return ls.Token.Literal}
+func (es *ExpressionStatement) statementNode() {}
+func (es *ExpressionStatement) TokenLiteral() string {return es.Token.Literal}
 func (es *ExpressionStatement) String() string {
   if es.Expression != nil {
     return es.Expression.String()
@@ -99,15 +99,6 @@ func (ls *LetStatement) String() string {
 
   return out.String()
 }
-
-type ReturnStatement struct{
-  Token token.Token
-  ReturnValue Expression
-}
-
-func (rs *ReturnStatement) statementNode() {}
-func (rs *ReturnStatement) TokenLiteral() string {return rs.Token.Literal}
-
 
 type Identifier struct{
   Token token.Token // the token.IDENT token
