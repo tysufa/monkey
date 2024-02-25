@@ -15,8 +15,6 @@ func (p *Program) String() string{
   return out.String()
 }
 
-
-
 type Node interface {
   TokenLiteral() string
   String() string
@@ -43,6 +41,16 @@ func (p *Program) TokenLiteral() string{
     return ""
   }
 }
+
+type IntegerLiteral struct{
+  Token token.Token
+  Value int64
+}
+
+func (il *IntegerLiteral) expressionNode() {}
+func (il *IntegerLiteral) TokenLiteral() string {return il.Token.Literal}
+func (il *IntegerLiteral) String() string { return il.Token.Literal}
+
 
 type ExpressionStatement struct{
   Token token.Token
