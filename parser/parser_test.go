@@ -28,7 +28,7 @@ func testIntegerLiteral(t *testing.T, il ast.Expression, value int64) bool {
   return true
 }
 
-func TestPrefixExpression(t *testing.T){
+func TestParsingPrefixExpression(t *testing.T){
   prefixTests := []struct {
     input string
     operator string
